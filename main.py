@@ -1,6 +1,6 @@
 from nextcord import Webhook
 import nextcord
-import random
+from random import randint
 import time
 from nextcord.ext import commands
 import aiohttp
@@ -20,14 +20,15 @@ async def sendToWebhook(content):
 @client.event
 async def on_ready():
     while True:
-        num = random.randint(1, 47)
+        num = randint(1, 47)
         linecount = 0
         for x in lines():
             linecount += 1
             if linecount == num:
                 line = x
-        await sendToWebhook( f'Hello <@&908912623188336700> we would revive the chat with a topic.The topic is : {line}')
-        await asyncio.sleep(3600)
+        await sendToWebhook( f'Hello  we would revive the chat with a topic. The topic is : {line}')
+        await asyncio.sleep(2)
+        num = 1
 
 
 
