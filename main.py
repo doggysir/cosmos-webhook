@@ -20,7 +20,7 @@ async def sendToWebhook(content):
 @client.event
 async def on_ready():
     while True:
-        num = random.randint(1, 22)
+        num = random.randint(1, 47)
         linecount = 0
         for x in lines():
             linecount += 1
