@@ -1,13 +1,12 @@
 from nextcord import Webhook
 import nextcord
-from random import randint
+from random import choice
 import time
 from nextcord.ext import commands
 import aiohttp
 from nextcord.webhook.async_ import AsyncWebhookAdapter
 import asyncio
 theurl = open('url.txt', 'r').read()
-
 client = commands.Bot(command_prefix='-jjkwdhak')
 lines = open('randoms.txt', 'r').readlines
 
@@ -19,16 +18,10 @@ async def sendToWebhook(content):
 
 @client.event
 async def on_ready():
-    while True:
-        num = randint(1, 47)
-        linecount = 0
-        for x in lines():
-            linecount += 1
-            if linecount == num:
-                line = x
-        await sendToWebhook( f'Hello  we would revive the chat with a topic. The topic is : {line}')
-        await asyncio.sleep(2)
-        num = 1
+    lines = open('randoms.txt').read().splitlines()
+    myline = choice(lines)
+    await sendToWebhook(f'Hello, we would like to revive the chat with a topic. The topic is: {myline}')
+    await asyncio.sleep(5)
 
 
 
